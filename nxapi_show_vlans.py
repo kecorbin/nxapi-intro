@@ -1,10 +1,12 @@
 import requests
 import json
+import credentials
 
-# Change these parameters for your environment
-url='http://192.168.51.128/ins'
-switchuser='admin'
-switchpassword='changeme'
+switch = credentials.switch
+switchuser = credentials.user
+switchpassword = credentials.password
+
+url = "http://{}/ins".format(switch)
 
 myheaders={'content-type':'application/json-rpc'}
 payload=[

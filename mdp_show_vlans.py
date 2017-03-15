@@ -1,9 +1,10 @@
 import requests
 import json
+import credentials
 
-switch = "192.168.51.128"
-username = "admin"
-password = "changeme"
+switch = credentials.switch
+username = credentials.user
+password = credentials.password
 
 def get_token(switch, user, password):
     """
@@ -22,6 +23,7 @@ def get_token(switch, user, password):
     login_url = "http://{}/api/aaaLogin.json".format(switch)
     headers = {'Content-Type': "application/json"}
     response = requests.post(login_url, data=json.dumps(payload), headers=headers)
+    print(response.text)
     token = response.json()['imdata'][0]['aaaLogin']['attributes']['token']
     return token
 

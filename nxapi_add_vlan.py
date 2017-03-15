@@ -1,12 +1,13 @@
 import requests
 import json
+import credentials
 
-"""
-Modify these please
-"""
-url='http://192.168.51.128/ins'
-switchuser='admin'
-switchpassword='changeme'
+switch = credentials.switch
+switchuser = credentials.user
+switchpassword = credentials.password
+
+url='http://{}/ins'.format(switch)
+
 vlan = 346
 myheaders={'content-type':'application/json-rpc'}
 payload=[

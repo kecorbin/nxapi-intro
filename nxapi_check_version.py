@@ -1,13 +1,14 @@
-import sys
 import json
 import requests
+import credentials
 
 my_headers = {'content-type': 'application/json-rpc'}
 
-# Change these parameters for your environment
-url = "http://192.168.51.128/ins"
-username = "admin"
-password = "changeme"
+switch = credentials.switch
+username = credentials.user
+password = credentials.password
+
+url = "http://{}/ins".format(switch)
 
 payload = [{'jsonrpc': '2.0', 'method': 'cli', 'params': ['show version',1], 'id': '1'}]
 my_data = json.dumps(payload)
