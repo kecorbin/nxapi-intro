@@ -25,7 +25,17 @@ switch#
 
 ## Getting Started
 
-Start by modifying the cred
+Start by modifying the credentials.py file and change the parameters to match your development environment
+
+```
+switch = '192.168.51.128'
+user='admin'
+password='changeme'
+```
+
+Test by executing nxapi_check_version.py
+
+
 # More information
 
 For more information you can visit Cisco DevNet
