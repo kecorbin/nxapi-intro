@@ -1,0 +1,72 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Camden MDP",
+		"_postman_id": "a2e5c4a9-e36e-035e-64f6-a6a1baf43aaf",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authenticate",
+			"request": {
+				"url": "http://192.168.51.128/api/aaaLogin.json",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"aaaUser\" : {\n    \"attributes\" : {\n      \"name\" : \"admin\",\n      \"pwd\" : \"changeme\"\n    }\n  }\n}\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Interface List",
+			"request": {
+				"url": "http://192.168.51.128/api/class/l1PhysIf.json",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "VLANS",
+			"request": {
+				"url": "http://192.168.51.128/api/class/l2BD.json",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "IPv4 ACLs",
+			"request": {
+				"url": "http://192.168.51.128/api/class/ipv4aclACL.json?rsp-prop-include=config-only&rsp-subtree=full",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Create an ACL",
+			"request": {
+				"url": "http://192.168.51.128/api/mo/sys/acl/ipv4.json",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n      \"ipv4aclACL\": {\n        \"attributes\": {\n          \"dn\": \"sys/acl/ipv4/name-test2\",\n          \"name\": \"test2\",\n          \"perACEStatistics\": \"Per-ACE stats is off\"\n        },\n        \"children\": [\n          {\n            \"ipv4aclACE\": {\n              \"attributes\": {\n                \"ack\": \"no\",\n                \"action\": \"permit\",\n                \"dstPrefix\": \"10.0.0.0\",\n                \"dstPrefixLength\": \"0\",\n                \"dstPrefixMask\": \"0.255.255.255\",\n                \"protocol\": \"ip\",\n                \"seqNum\": \"10\",\n                \"srcPort1\": \"0\",\n                \"srcPort2\": \"0\",\n                \"srcPortOp\": \"none\",\n                \"srcPrefix\": \"0.0.0.0\",\n                \"srcPrefixLength\": \"0\",\n                \"srcPrefixMask\": \"0.0.0.0\"\n                \n              }\n            }\n          }\n        ]\n      }\n    }\n  "
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,45 @@
+{
+	"variables": [],
+	"info": {
+		"name": "NX-API",
+		"_postman_id": "13f65735-a471-fd00-06cd-0359b90ee818",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Show Version",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "admin",
+						"password": "changeme",
+						"saveHelperData": true,
+						"showPassword": false
+					}
+				},
+				"url": "http://192.168.51.128/ins",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YyFzY28xMjM=",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json-rpc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"jsonrpc\": \"2.0\",\n\"method\": \"cli\",\n\"params\": {\n  \"cmd\": \"show version\",\n  \"version\": 1\n},\n\"id\": 1\n}\n"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
